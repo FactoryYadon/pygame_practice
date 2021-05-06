@@ -1,1 +1,1 @@
-dino_name = "공룡"
+dino_name = "다큰 공룡"
