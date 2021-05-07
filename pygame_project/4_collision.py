@@ -77,6 +77,10 @@ balloons.append({
 
 })
 
+# 사라질 무기, 공 정보 저장 변수
+weapon_to_remove = -1
+ball_to_remove = -1
+
 
 
 # 무기는 한번에 여러 발 발사 가능
@@ -160,7 +164,55 @@ while running:
 
 
 
-    
+    character_rect = character.get_rect()
+    character_rect.left = character_x_pos
+    character_rect.top = character_y_pos
+
+    for idx,val in enumerate(balloons):
+        ball_pos_x = ball_val["pos_x"]
+        ball_pos_y = ball_val["pos_y"]
+        ball_img_idx = ball_val["img_idx"]
+
+
+        # 공 rect 정보 업데이트
+        ball_rect = ball_images[ball_img_idx].get_rect()
+        ball_rect.left = ball_pos_x
+        ball_rect.top = ball_pos_y
+
+        if character_rect.colliderect(ball_rect):
+            running = False
+
+
+        # 공과 무기들 충돌 처리
+        for weapon_idx , weapon_val in enumerate(weapons):
+            weapon_pos_x = weapon_val[0]
+            weapon_pos_y = weapon_val[1]
+
+            weapon_rect = weapon.get_rect()
+            weapon_rect.left = weapon_pos_x
+            weapon_rect.top = weapon_pos_y
+
+
+            # 충돌 체크
+            if weapon_rect.colliderect(ball_rect):
+                weapon_to_remove = weapon_idx
+                ball_to_remove = idx
+                break
+        
+        # 충돌된 공 or 무기 없애기
+        if ball_to_remove > -1:
+            del balloons[ball_to_remove]
+            ball_to_remove = -1
+
+        if weapon_to_remove > -1:
+            del weapons[weapon_to_remove]
+            weapon_to_remove = -1
+
+
+
+
+
+
 
 
 
@@ -180,6 +232,7 @@ while running:
 
     screen.blit(stage,(stage_x_pos,stage_y_pos))                # stage 그리기
     screen.blit(character,(character_x_pos,character_y_pos))    # character 그리기
+
 
     
 
