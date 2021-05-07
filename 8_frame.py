@@ -1,18 +1,31 @@
 import pygame
 import os
 
+########################################################################
+
+# 기본 초기화 반드시 해야하는 것들
+
 pygame.init()                               # 초기화 반드시 필요
 
 # 파일 경로 설정
 sourceFileDir = os.path.dirname(os.path.abspath(__file__))
-
-
 
 # 화면크기 설정
 screen_width = 480
 screen_height = 640
 
 screen = pygame.display.set_mode((screen_width,screen_height))
+
+# 화면 타이틀 설정
+pygame.display.set_caption("Nado Game")
+
+# FPS
+clock = pygame.time.Clock()
+
+########################################################################
+
+# 1.  사용자 게임 초기화 ( 배경화면 , 게임 이미지 , 좌표 ,  폰트 등 )
+
 
 # 배경 이미지 불러오기
 background = pygame.image.load(os.path.join(sourceFileDir,"background.png"))
@@ -27,11 +40,7 @@ character_y_pos = screen_height - character_height                              
 
 
 
-# 화면 타이틀 설정
-pygame.display.set_caption("Nado Game")
 
-# FPS
-clock = pygame.time.Clock()
 
 # 이동할 좌표
 to_x = 0 
@@ -68,12 +77,16 @@ running = True
 while running:
     dt = clock.tick(60)
 
-# 캐릭터가 1초동안에 100 만큼 이동함
-# 10fps : 1초동안에 10번 동작 -> 1번에 10만큼 이동
-# 20fps : 1초동안에 20번 동작 -> 1번에 5만큼 이동
-
     print("fps = {0}".format(clock.get_fps()))
-    # print(sourceFileDir)
+    
+    # 2. 이벤트 처리 (키보드 , 마우스 등)
+
+    # 2. 이벤트 처리 (키보드 , 마우스 등)
+
+    # 4. 충돌 처리 (키보드 , 마우스 등)
+
+    # 5. 화면에 그리기 (키보드 , 마우스 등)
+
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
