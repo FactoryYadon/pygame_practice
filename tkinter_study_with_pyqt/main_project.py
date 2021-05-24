@@ -31,10 +31,10 @@ class WindowClass(QMainWindow, form_class) :
     
     # 이벤트 정리 쪽
     
-    def show_file_dialog(self):
-        frame = QFileDialog.getOpenFileName(self,"open choose file","pygame_practice",filter="*.png")
-        print(frame[0])
-        self.tb_File_list.append(frame[0])
+    # def show_file_dialog(self):
+    #     frame = QFileDialog.getOpenFileName(self,"open choose file","pygame_practice",filter="*.png")
+    #     print(frame[0])
+    #     self.tb_File_list.append(frame[0])
 
 
     
