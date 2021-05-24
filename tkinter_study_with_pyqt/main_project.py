@@ -1,4 +1,3 @@
-from posixpath import supports_unicode_filenames
 import sys
 import os
 from PyQt5.QtWidgets import *
@@ -25,19 +24,6 @@ class WindowClass(QMainWindow, form_class) :
         self.refresh_form.refresh_screen(self)
         self.sig_slot = signal_slot.initial_signal(self)
 
-        
-
-
-    
-    # 이벤트 정리 쪽
-    
-    def show_file_dialog(self):
-        frame = QFileDialog.getOpenFileName(self,"open choose file","pygame_practice",filter="*.png")
-        print(frame[0])
-        self.tb_File_list.append(frame[0])
-
-
-    
 
 
 if __name__ == "__main__" :

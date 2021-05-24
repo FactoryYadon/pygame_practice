@@ -19,3 +19,6 @@ class mainform_init():
         for item in self.image_format_tuple:
             
             mainform.cbox_Image_format.addItem(item)
+
+    # def initialize_dialog(self):
+    #     pass
