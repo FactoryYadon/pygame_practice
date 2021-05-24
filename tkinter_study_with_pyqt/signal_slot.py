@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import pyqtSignal
+from PIL import Image
+import os
+import time
 
 class initial_signal():
 
@@ -64,16 +67,40 @@ class initial_signal():
                 msg_box.exec_()
 
             else:
-                self.conversion_start2()
+                self.merge_image()
 
 
-    def conversion_start2(self):
-        for item_row in range(self.main_form.listw_File_list.count()):
-            print(self.main_form.listw_File_list.item(item_row).text())
+    
 
-  
+    def merge_image(self):
+        images = [Image.open(self.main_form.listw_File_list.item(item_row).text()) for item_row in range(self.main_form.listw_File_list.count())]
+        # print(images)
+        widths = [x.size[0] for x in images]
+        heights = [x.size[1] for x in images]
 
+        max_width , total_height = max(widths), sum(heights)
 
+        # 스케치북 준비
+        result_img = Image.new("RGB",(max_width,total_height),(255,255,255))    # 배경 
+        x_offset = 0
+        y_offset = 0                                                            # y 위치
+        for idx,img in enumerate(images):
+            x_offset = int((max_width/2) - (img.size[0]/2))
+            result_img.paste(img,(x_offset,y_offset))
+            y_offset += img.size[1]
+
+            progress = (idx + 1) / len(images) * 100
+            self.main_form.pgb_Merge_progress.setValue(progress)
+            time.sleep(2)
+
+        dest_path = os.path.join(self.main_form.le_File_path.text(),"merge_photo.jpg")
+
+        result_img.save(dest_path)
+
+        msg_box = QMessageBox()
+        msg_box.setWindowTitle("merge_image")
+        msg_box.setText("complete")
+        msg_box.exec_()
     
 
 

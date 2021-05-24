@@ -20,5 +20,7 @@ class mainform_init():
             
             mainform.cbox_Image_format.addItem(item)
 
+        mainform.pgb_Merge_progress.reset()
+
     # def initialize_dialog(self):
     #     pass
