@@ -20,13 +20,11 @@ class initial_signal():
 
     
     #### slot
-    
     ## File Dialog pop up
     def show_file_dialog(self): 
         frame = QFileDialog.getOpenFileNames(self.main_form,"open choose file","pygame_study",filter="*.png")
         for path in frame[0]:
             self.main_form.listw_File_list.addItem(path)
-
     
     ## list widget item discard
     def list_discard(self):
@@ -45,7 +43,6 @@ class initial_signal():
 
         for i in lst_item:
             self.main_form.listw_File_list.takeItem(i)
-
         
     def file_save_path(self):
         frame = QFileDialog.getExistingDirectory(self.main_form,"select directory")
@@ -69,8 +66,6 @@ class initial_signal():
             else:
                 self.merge_image()
 
-
-    
 
     def merge_image(self):
         images = [Image.open(self.main_form.listw_File_list.item(item_row).text()) for item_row in range(self.main_form.listw_File_list.count())]
