@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "p0cjprWIKW7UFoTBc1lUcpfB2/JsbzRPPaoAqFrHHrv2pQk1FhILUPKRV/CV2/WBrket8939q5nLMRZ/5ZX8Xg==",
+  "success": true,
+  "projectFilePath": "D:\\python\\study\\pygame_practice\\component\\component.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hanwha\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0-preview.4.21253.7\\microsoft.extensions.dependencyinjection.abstractions.6.0.0-preview.4.21253.7.nupkg.sha512",
+    "C:\\Users\\hanwha\\.nuget\\packages\\microsoft.extensions.options\\6.0.0-preview.4.21253.7\\microsoft.extensions.options.6.0.0-preview.4.21253.7.nupkg.sha512",
+    "C:\\Users\\hanwha\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0-preview.4.21253.7\\microsoft.extensions.primitives.6.0.0-preview.4.21253.7.nupkg.sha512",
+    "C:\\Users\\hanwha\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0-preview.4.21253.7\\system.runtime.compilerservices.unsafe.6.0.0-preview.4.21253.7.nupkg.sha512"
+  ],
+  "logs": []
+}
